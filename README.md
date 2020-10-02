@@ -20,19 +20,28 @@ App
 
 ## Personal Objectives
 
+- Promote financial awareness
 - Practise Product Development
 - Polish React Skills
 - Learn something new (AWS DynamoDB and Lambda)
 - Conenct like-minded friends
 
-## Features
+## Tech Stack
 
-- Feature Toggling
-- Text copy A/B Testing (CMS)
+### Product
+
+- Google Analytics
+- Google Optimize (A/B Test)
+
+### UX
+
+- FullStory
 
 ### Front End
 
 - React
+- Typescript
+- MaterialUI
 
 ### Back End
 
