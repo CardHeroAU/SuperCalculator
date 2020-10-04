@@ -14,15 +14,22 @@ App
 
 ## Personal Objectives
 
+- Promote financial awareness
 - Practise Product Development
 - Polish React Skills
 - Learn something new (AWS DynamoDB and Lambda)
 - Conenct like-minded friends
 
-## Features
+## Tech Stack
 
-- Feature Toggling
-- Text copy A/B Testing (CMS)
+### Product
+
+- Google Analytics
+- Google Optimize
+
+### UX
+
+- FullStory
 
 ## Tech Stack
 
@@ -31,6 +38,9 @@ This app is created by [Create React App](./docs/CRA.md).
 ### Front End
 
 - React
+- Typescript
+- MaterialUI
+- Storybook
 
 ### Back End
 
@@ -38,7 +48,7 @@ This app is created by [Create React App](./docs/CRA.md).
 - Serverless Architecture
 - Database (DynamoDB) 
 - API Testing
-- CI/CD
+- CI/CD (Netlify)
 
 ## Links
 
