@@ -9,14 +9,8 @@ App
 ## Features
 
 - Simple to Use! (UX)
-- TOC & Privacy Policy
-- Ad Space
 - PWA
 - iFrame
-- CTA
-    - Email
-    - Social Likes
-    - Signup
 
 ## Personal Objectives
 
@@ -29,6 +23,10 @@ App
 
 - Feature Toggling
 - Text copy A/B Testing (CMS)
+
+## Tech Stack
+
+This app is created by [Create React App](./docs/CRA.md).
 
 ### Front End
 
