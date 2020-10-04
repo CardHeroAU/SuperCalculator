@@ -1,5 +1,7 @@
 # SuperCalculator
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8fe030ea-bca6-4872-b42c-d6a4fac563f9/deploy-status)](https://app.netlify.com/sites/admiring-northcutt-b8506c/deploys)
+
 ## The Problem
 
 Tax! Tax! Tax! 
