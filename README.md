@@ -60,7 +60,16 @@ This app is created by [Create React App](./docs/CRA.md).
 - Serverless Architecture
 - Database (DynamoDB) 
 - API Testing
-- CI/CD (Netlify)
+
+### Deployment
+
+- CloudFlare
+- Netlify
+
+### Others
+
+- codeclimate
+- snyk
 
 ## Links
 
