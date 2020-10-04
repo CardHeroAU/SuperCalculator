@@ -50,7 +50,7 @@ App
 - Serverless Architecture
 - Database (DynamoDB) 
 - API Testing
-- CI/CD
+- CI/CD (Netlify)
 
 ## Links
 
