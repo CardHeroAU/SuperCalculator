@@ -31,7 +31,7 @@ App
 ### Product
 
 - Google Analytics
-- Google Optimize (A/B Test)
+- Google Optimize
 
 ### UX
 
@@ -42,6 +42,7 @@ App
 - React
 - Typescript
 - MaterialUI
+- Storybook
 
 ### Back End
 
