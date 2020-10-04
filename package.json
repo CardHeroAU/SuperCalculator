@@ -13,7 +13,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "snyk": "^1.406.0"
   },
   "scripts": {
     "start": "yarn run start:storybook",
@@ -23,7 +24,9 @@
     "build:app": "react-scripts build",
     "build:storybook": "build-storybook -s public -o build/storybook",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,5 +53,6 @@
     "@storybook/react": "^6.0.25",
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1"
-  }
+  },
+  "snyk": true
 }
