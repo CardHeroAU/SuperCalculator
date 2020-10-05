@@ -16,8 +16,6 @@
 
 Tax! Tax! Tax! 
 
-App
-
 ## Features
 
 - Simple to Use! (UX)
