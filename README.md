@@ -16,7 +16,7 @@
 
 Tax! Tax! Tax! 
 
-App
+This SuperCalculator app is going to show you how Salary Sacrifice into Super can help you save tax.
 
 ## Features
 
