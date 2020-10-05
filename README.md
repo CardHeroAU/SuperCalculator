@@ -51,7 +51,7 @@ This app is created by [Create React App](./docs/CRA.md).
 
 - React
 - Typescript
-- MaterialUI
+- Grommet
 - Storybook
 
 ### Back End
