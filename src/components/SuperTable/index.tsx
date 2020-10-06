@@ -12,7 +12,6 @@ import {SacrificeRateProp, TotalIncomeProp} from "../../utils/types";
 import {SuperSacrificeRow} from "../SuperSacrificeRow";
 import {SuperGuarunteeRow} from "../SuperGuarunteeRow";
 import {SuperTotalRow} from "../SuperTotalRow";
-import {SuperTaxRow} from "../SuperTaxRow";
 
 export const SuperTable = ({totalIncome, sacrificeRate}: TotalIncomeProp & SacrificeRateProp) => (
   <TableContainer component={Paper}>

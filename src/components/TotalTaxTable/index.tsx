@@ -9,9 +9,6 @@ import Paper from '@material-ui/core/Paper';
 
 import {SacrificeRateProp, TotalIncomeProp} from "../../utils/types";
 
-import {TotalIncomeRow} from "../TotalIncomeRow";
-import {SuperSacrificeRow} from "../SuperSacrificeRow";
-import {TaxableIncomeRow} from "../TaxableIncomeRow";
 import {IncomeTaxRow} from "../IncomeTaxRow";
 import {SuperTaxRow} from "../SuperTaxRow";
 import {TotalTaxRow} from "../TotalTaxRow";

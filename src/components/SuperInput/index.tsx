@@ -1,10 +1,9 @@
 import {
   createStyles,
-  Divider, FormControl, FormHelperText,
+  Divider,
   IconButton,
-  InputBase, MenuItem,
+  InputBase,
   Paper,
-  Select, TextField,
   Theme,
   Tooltip,
   Typography
