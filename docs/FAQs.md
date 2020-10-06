@@ -28,7 +28,7 @@ With the same income, you get to KEEP more of the money due to tax savings.
 
 # Is it legal?
 
-100%. In fact, it is well publisized on ATO's website. 
+100%. In fact, it is well well publicized on ATO's and MoneySmart website. 
 
 # How is Tax calculated?
 
@@ -61,7 +61,7 @@ Since the income is split between tax and take-home, the less tax owed, the more
 
 [Image about Income & Tax]
 
-# How is Superanuation Taxed?
+# How is Superannuation Taxed?
 
 Generally speaking, the super is taxed at a consessional 15%. This includes 
 1. The Superanuation Guaruntee (The super employer pays you, usually 9.5%), and
