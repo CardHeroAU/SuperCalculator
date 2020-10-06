@@ -1,12 +1,12 @@
-# What is Super
+# What is Salary Sacrifice?
 
-Super (including super guarantee from your employer), is your money.
 
-# Why would you sacrifice you salary?
 
-Salary Sacrifice means .....
+# Why would you sacrifice you salary for Superannuation?
 
-This means instead of taking 100% of the salary (and possibly spend them all), you'll receive 80% of salary right now (and happily spent it) and the other 20% is paid automatically into your superanuation. 
+Salary Sacrifice means setting aside some pre-tax money, and taking home less money.
+
+This means instead of taking 100% of the salary (and possibly spend them all), receive 80% of salary right now (and happily spent it) and the other 20% is paid automatically into your superanuation. 
 
 [Image of bank & super]
 
