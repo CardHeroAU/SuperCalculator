@@ -1,4 +1,4 @@
-import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@material-ui/core";
+import {Accordion, AccordionDetails, AccordionSummary, Paper, Typography} from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from "react";
 import {useSuperCalculator} from "../../../hooks";
@@ -18,14 +18,25 @@ export const TotalTaxation = () => {
         id="superannuation-taxation"
         aria-controls="superannuation-taxation"
       >
-        <Typography >What's the total Taxed?</Typography>
+        <Typography >How is the Total Tax calculated?</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-          sit amet blandit leo lobortis eget.
-        </Typography>
-        <TotalTaxTable totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
+        <div>
+          <Typography>
+            Only Individual Income Tax and Superannuation Tax is considered in SuperCalculator.
+          </Typography>
+          <Paper variant="outlined">
+            <Typography variant="h6" gutterBottom>
+              Total Tax = Income Tax + Super Tax
+            </Typography>
+          </Paper>
+          <Typography gutterBottom>
+            Income Tax depends on Taxable Income
+          </Typography>
+          <Typography gutterBottom>
+            Super Tax depends on Superannuation Contribution
+          </Typography>
+        </div>
       </AccordionDetails>
     </Accordion>
   )

@@ -11,11 +11,11 @@ export const TotalTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & Sacr
   const superSacrifice = totalIncome * sacrificeRate;
   const taxableIncome = totalIncome - superSacrifice;
 
-  const incomeTaxWithoutSacrifice = calculateIncomeTaxFor(totalIncome);
+  const [incomeTaxWithoutSacrifice] = calculateIncomeTaxFor(totalIncome);
   const superTaxWithoutSacrifice = calculateSuperTaxFor(superGuaruntee, totalIncome);
   const totalTaxWithoutSacrifice = incomeTaxWithoutSacrifice + superTaxWithoutSacrifice;
 
-  const incomeTaxWithSacrifice = calculateIncomeTaxFor(taxableIncome);
+  const [incomeTaxWithSacrifice] = calculateIncomeTaxFor(taxableIncome);
   const superTaxWithSacrifice = calculateSuperTaxFor(superGuaruntee + superSacrifice, totalIncome);
   const totalTaxWithSacrifice = incomeTaxWithSacrifice + superTaxWithSacrifice;
 

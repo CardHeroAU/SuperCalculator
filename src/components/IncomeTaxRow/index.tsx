@@ -8,8 +8,8 @@ export const IncomeTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & Sac
 
   const salarySacrifice = totalIncome * sacrificeRate;
 
-  const incomeTaxBefore = calculateIncomeTaxFor(totalIncome);
-  const incomeTaxAfter = calculateIncomeTaxFor(totalIncome - salarySacrifice);
+  const [incomeTaxBefore] = calculateIncomeTaxFor(totalIncome);
+  const [incomeTaxAfter] = calculateIncomeTaxFor(totalIncome - salarySacrifice);
 
   const before = currencyFormatter.format(incomeTaxBefore);
   const after = currencyFormatter.format(incomeTaxAfter);

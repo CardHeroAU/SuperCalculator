@@ -16,11 +16,11 @@ export const FAQs = () => {
       <WhySalarySacrifice />
       <SalarySacrificeLess />
       <IsItLegal />
+      <TotalTaxation />
       <IncomeCalculation/>
       <IncomeTaxation/>
       <SuperCalculation/>
       <SuperTaxation/>
-      <TotalTaxation/>
     </>
   )
 }

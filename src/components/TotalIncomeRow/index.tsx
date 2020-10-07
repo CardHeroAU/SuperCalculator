@@ -10,7 +10,7 @@ export const TotalIncomeRow = ({totalIncome}: TotalIncomeProp) => {
 
   return (
     <TableRow >
-      <TableCell component="th" scope="row">Income</TableCell>
+      <TableCell component="th" scope="row">Total Income</TableCell>
       <TableCell align="right" >{before}</TableCell>
       <TableCell align="right" >{after}</TableCell>
     </TableRow>

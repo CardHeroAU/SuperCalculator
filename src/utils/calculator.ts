@@ -1,5 +1,8 @@
 import * as INCOME_TAX_TABLE from "../data/individual-income-tax.json";
 import * as SUPER_TAX_TABLE from "../data/super-tax.json";
+import {Typography} from "@material-ui/core";
+import React from "react";
+import {currencyFormatter} from "./formatter";
 
 const calculateMarginalTaxRate = (taxableIncome: number) => {
   const taxBrackets = INCOME_TAX_TABLE.resident;
@@ -14,32 +17,34 @@ const calculateMarginalTaxRate = (taxableIncome: number) => {
   return 0;
 }
 
-export const calculateIncomeTaxFor = (taxableIncome: number) => {
+export const calculateIncomeTaxFor = (taxableIncome: number): [number, string] => {
 
   const taxBrackets = INCOME_TAX_TABLE.resident;
 
-  let remainder = taxableIncome;
   let tax = 0;
-  // console.log("Calculating Tax for income: ", taxableIncome);
+  var formula = "";
+  console.log("Calculating Tax for income: ", taxableIncome);
   for (let i = 0; i < taxBrackets.length; i++) {
-    // console.log("remainder is: ", remainder);
     const taxBracket = taxBrackets[i];
-    if (remainder === 0) {
-      // console.log("remainder is 0, do nothing for", taxBracket);
-    } else if (remainder <= taxBracket.maximum) {
-      // console.log("remainder is less than maximum", taxBracket);
-      tax += remainder * taxBracket.rate;
-      // console.log("incremented tax by ", remainder * taxBracket.rate, "tax is now: ", tax);
-      remainder = 0;
+    if (taxableIncome <= taxBracket.minimum) {
+      console.log(`TaxableIncome ${taxableIncome} not in this bracket: ${taxBracket.rate}`)
+      return [tax, formula];
+    } else if (taxableIncome >= taxBracket.minimum && taxableIncome <= taxBracket.maximum) {
+      console.log(`TaxableIncome ${taxableIncome} ends in this bracket: ${taxBracket.rate}`)
+      const increment = (taxableIncome - taxBracket.minimum) * taxBracket.rate;
+      formula += `(${currencyFormatter.format(taxBracket.maximum)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
+      tax += increment;
+      console.log("Tax incremented by ", increment, ". It is now: ", tax);
     } else {
-      // console.log("remainder is more than maximum", taxBracket);
-      tax += (taxBracket.maximum - taxBracket.minimum) * taxBracket.rate;
-      remainder -= (taxBracket.maximum - taxBracket.minimum);
-      // console.log("incremented tax by ", (taxBracket.maximum - taxBracket.minimum) * taxBracket.rate, "tax is now: ", tax);
+      console.log(`TaxableIncome ${taxableIncome} exceeds this bracket: ${taxBracket.rate}`);
+      const increment = (taxBracket.maximum - taxBracket.minimum) * taxBracket.rate;
+      formula += `(${currencyFormatter.format(taxBracket.maximum)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
+      formula += ` + `
+      tax += increment;
+      console.log("Tax incremented by ", increment, ". It is now: ", tax);
     }
   }
-
-  return tax;
+  return [tax, formula];
 }
 
 export const calculateSuperTaxFor = (superanuation: number, taxableIncome: number) => {

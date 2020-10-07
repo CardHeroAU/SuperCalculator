@@ -1,7 +1,6 @@
 import {Accordion, AccordionDetails, AccordionSummary, Link, Paper, Typography} from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from "react";
-import image from "../../../assets/images/salary-sacrifice-less.png"
 
 export const IsItLegal = () => {
 

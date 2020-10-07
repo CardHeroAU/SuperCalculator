@@ -1,12 +1,6 @@
-# How is Tax calculated?
-
-For this context, only Individual Income Tax and Superanuation Tax is considered for the calculation. 
-
-[Formula]
-
 # How is Individual Income Tax calculated?
 
-ATO uses a progressive tax system. Meaning different portion of your taxable income will be taxed differetly. 
+Depending on one's income, tax is calculated based on income tax rates.  
 
 As of 20xx, here's the income tax table. For latest, please visit ATO.
 

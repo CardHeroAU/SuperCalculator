@@ -13,7 +13,7 @@ export const SuperSacrificeRow = ({totalIncome, sacrificeRate}: TotalIncomeProp 
   return (
     <TableRow >
       <TableCell component="th" scope="row">
-        Sacrifice
+        Salary Sacrifice
       </TableCell>
       <TableCell align="right" >{before}</TableCell>
       <TableCell align="right" >{after}</TableCell>
