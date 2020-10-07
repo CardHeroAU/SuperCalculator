@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,7 +18,7 @@
     "typescript": "~3.9.7"
   },
   "scripts": {
-    "start": "yarn run start:storybook",
+    "start": "yarn run start:app",
     "start:app": "react-scripts start",
     "start:storybook": "start-storybook -p 6006 -s public",
     "build": "yarn build:app && yarn build:storybook",
