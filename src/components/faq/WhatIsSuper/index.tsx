@@ -21,7 +21,8 @@ export const WhatIsSuper = () => {
           <Typography paragraph={true}>
             Super (including super guarantee from your employer), is your money.
           </Typography>
-          <iframe src="https://www.youtube.com/embed/9tN5zYppkE0?controls=0" frameBorder="0"
+          <iframe title={"What is super"}
+                  src="https://www.youtube.com/embed/9tN5zYppkE0?controls=0" frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen/>
         </div>

@@ -12,7 +12,7 @@ import AttachMoney from "@material-ui/icons/AttachMoney";
 import Remove from "@material-ui/icons/Remove";
 import Add from "@material-ui/icons/Add";
 import Send from "@material-ui/icons/Send";
-import React, {useState} from "react";
+import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
 interface SuperInputProp {
@@ -47,7 +47,7 @@ export const SuperInput = ({totalIncome, sacrificeRate, updateTotalIncome, updat
 
   const classes = useStyles();
 
-  const [includeSuper, setIncludesSuper] = useState(true);
+  // const [includeSuper, setIncludesSuper] = useState(true);
 
   return (
     <Paper component="form" className={classes.root}>

@@ -1,10 +1,4 @@
-# What is Salary Sacrifice?
-
-
-
 # Why would you sacrifice you salary for Superannuation?
-
-Salary Sacrifice means setting aside some pre-tax money, and taking home less money.
 
 This means instead of taking 100% of the salary (and possibly spend them all), receive 80% of salary right now (and happily spent it) and the other 20% is paid automatically into your superanuation. 
 

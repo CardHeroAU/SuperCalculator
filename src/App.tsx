@@ -38,13 +38,19 @@ function App() {
 
   return (
     <div>
-      <SuperInput sacrificeRate={sacrificeRate}
-                  totalIncome={totalIncome}
-                  updateSacrificeRate={(sacrificeRate) => updateSacrificeRate(sacrificeRate)}
-                  updateTotalIncome={(totalIncome) => updateIncome(totalIncome)}/>
+      <Box display="flex">
+        <SuperInput sacrificeRate={sacrificeRate}
+                    totalIncome={totalIncome}
+                    updateSacrificeRate={(sacrificeRate) => updateSacrificeRate(sacrificeRate)}
+                    updateTotalIncome={(totalIncome) => updateIncome(totalIncome)}/>
+      </Box>
       <SuperCalculatorProvider totalIncome={totalIncome} sacrificeRate={sacrificeRate}>
-        <SummaryTable />
-        <FAQs />
+        <Box>
+          <SummaryTable/>
+        </Box>
+        <Box>
+          <FAQs/>
+        </Box>
       </SuperCalculatorProvider>
       <Box display="flex">
         <Box m="auto">
