@@ -1,29 +1,29 @@
 import {Accordion, AccordionDetails, AccordionSummary, Paper, Typography} from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from "react";
-import image from "../../../assets/images/salary-sacrifice.png"
+import image from "../../../assets/images/why-salary-sacrifice.png"
 
-export const WhatIsSalarySacrifice = () => {
+export const WhySalarySacrifice = () => {
 
   return (
     <Accordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
-        id="salary-sacrifice"
-        aria-controls="salary-sacrifice"
+        id="superannuation-taxation"
+        aria-controls="superannuation-taxation"
       >
-        <Typography >What IS Salary Sacrifice?</Typography>
+        <Typography >Why would someone sacrifice their salary for superannuation?</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <div>
           <Typography paragraph={true}>
-            Salary sacrifice means a part of pre-tax salary is sacrificed in return for benefits of a similar value, e.g. Superannuation.
+            Super is YOUR money.
           </Typography>
           <Typography paragraph={true}>
-            Salary sacrifice lowers your taxable income, which could lead to less tax.
+            Salary sacrificing lowers taxable income. The less tax owed, the more you get to keep.
           </Typography>
           <Paper variant="outlined">
-            <img src={image} alt="salary-sacrifice" width="100%" />
+            <img src={image} alt="why-salary-sacrifice" width="100%" />
           </Paper>
         </div>
       </AccordionDetails>

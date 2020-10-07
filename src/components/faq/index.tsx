@@ -5,13 +5,17 @@ import {SuperTaxation} from "./SuperTaxation";
 import {TotalTaxation} from "./TotalTaxCalculation";
 import React from "react";
 import {WhatIsSuper} from "./WhatIsSuper";
-import {WhatIsSalarySacrifice} from "./WhatIsSalarySacrifice";
+import {WhySalarySacrifice} from "./WhySalarySacrifice";
+import {SalarySacrificeLess} from "./SalarySacrificeLess";
+import {IsItLegal} from "./IsItLegal";
 
 export const FAQs = () => {
   return (
     <>
-      <WhatIsSalarySacrifice />
       <WhatIsSuper />
+      <WhySalarySacrifice />
+      <SalarySacrificeLess />
+      <IsItLegal />
       <IncomeCalculation/>
       <IncomeTaxation/>
       <SuperCalculation/>

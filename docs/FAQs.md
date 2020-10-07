@@ -1,29 +1,3 @@
-# Why would you sacrifice you salary for Superannuation?
-
-This means instead of taking 100% of the salary (and possibly spend them all), receive 80% of salary right now (and happily spent it) and the other 20% is paid automatically into your superanuation. 
-
-[Image of bank & super]
-
-Either way, you'll receive 100% of the salary (less the tax). The main difference is timing:
-
-[Image of yong man and old man with $ sign on top]
-
-# Do I receive less if I salary sacrifice?
-
-No. 
-
-On the contrary, due to the tax savings, you could end up receiving more!
-
-[table]
-
-With the same income, you get to KEEP more of the money due to tax savings.
-
-[image of illustration of more and less tax]
-
-# Is it legal?
-
-100%. In fact, it is well well publicized on ATO's and MoneySmart website. 
-
 # How is Tax calculated?
 
 For this context, only Individual Income Tax and Superanuation Tax is considered for the calculation. 
@@ -92,6 +66,10 @@ For more info, please speak to financial planner
 # What are other Pros vs Cons?
 
 Here is some general pros & cons.
+
+Either way, you'll receive 100% of the salary (less the tax). The main difference is timing:
+
+[Image of yong man and old man with $ sign on top]
 
 [table]
 

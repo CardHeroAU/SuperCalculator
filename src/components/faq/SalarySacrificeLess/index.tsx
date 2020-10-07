@@ -1,9 +1,9 @@
 import {Accordion, AccordionDetails, AccordionSummary, Paper, Typography} from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from "react";
-import image from "../../../assets/images/what-is-super.png";
+import image from "../../../assets/images/salary-sacrifice-less.png"
 
-export const WhatIsSuper = () => {
+export const SalarySacrificeLess = () => {
 
   return (
     <Accordion>
@@ -12,19 +12,22 @@ export const WhatIsSuper = () => {
         id="superannuation-taxation"
         aria-controls="superannuation-taxation"
       >
-        <Typography >What IS Super?</Typography>
+        <Typography >Do I receve less if I Salary Sacrifice?</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <div>
           <Typography paragraph={true}>
-            Super, or superannuation, is money set aside during your working life for when you retire. Your super is your future.
+            NO.
           </Typography>
           <Typography paragraph={true}>
-            Super (including super guarantee from your employer), is your money.
+            On the contrary, due to the tax savings, one could end up keeping more!
           </Typography>
           <Paper variant="outlined">
-            <img src={image} alt="why-salary-sacrifice" width="100%" />
+            <img src={image} alt="salary-sacrifice-less" width="100%" />
           </Paper>
+          <Typography paragraph={true}>
+            It's about timing. Does one wish to receive all the money now? Or does one want to receive more money in the future?
+          </Typography>
         </div>
       </AccordionDetails>
     </Accordion>

@@ -97,14 +97,14 @@ export const SuperInput = ({totalIncome, sacrificeRate, updateTotalIncome, updat
         color="primary" >
         <Add />
       </IconButton>
-      <Divider className={classes.divider} orientation="vertical" />
-      <IconButton
-        className={classes.iconButton}
-        aria-label="sendEmail"
-        onClick={() => updateSacrificeRate(sacrificeRate + 0.01)}
-        color="primary" >
-        <Send />
-      </IconButton>
+      {/*<Divider className={classes.divider} orientation="vertical" />*/}
+      {/*<IconButton*/}
+      {/*  className={classes.iconButton}*/}
+      {/*  aria-label="sendEmail"*/}
+      {/*  onClick={() => updateSacrificeRate(sacrificeRate + 0.01)}*/}
+      {/*  color="primary" >*/}
+      {/*  <Send />*/}
+      {/*</IconButton>*/}
     </Paper>
   )
 };
