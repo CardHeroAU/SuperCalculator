@@ -14,14 +14,17 @@ export const IncomeTaxRateTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {INCOME_TAX_TABLE.resident.map((row) => (
-            <TableRow key={row.minimum}>
-              <TableCell component="th" scope="row">
-                {currencyFormatter.format(row.minimum)} - {currencyFormatter.format(row.maximum)}
-              </TableCell>
-              <TableCell >{(row.rate * 100).toFixed(2) + "%"}</TableCell>
-            </TableRow>
-          ))}
+          {INCOME_TAX_TABLE.resident.map((bracket, i) => {
+            const nextBracket = (i < INCOME_TAX_TABLE.resident.length - 1) ? INCOME_TAX_TABLE.resident[i] : undefined;
+            return (
+              <TableRow key={bracket.minimum}>
+                <TableCell component="th" scope="row">
+                  {currencyFormatter.format(bracket.minimum)} - {nextBracket ? currencyFormatter.format(nextBracket.minimum) : "Above"}
+                </TableCell>
+                <TableCell >{(bracket.rate * 100).toFixed(2) + "%"}</TableCell>
+              </TableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </TableContainer>

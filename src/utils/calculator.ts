@@ -7,7 +7,13 @@ export const calculateMarginalTaxRate = (taxableIncome: number) => {
 
   for (let i = 0; i < taxBrackets.length; i++) {
     const taxBracket = taxBrackets[i];
-    if (taxableIncome >= taxBracket.minimum && taxableIncome <= taxBracket.maximum) {
+    const nextBracket = i < taxBrackets.length - 1 ? taxBrackets[i + 1] : undefined;
+
+    if (!nextBracket) {
+      return taxBracket.rate;
+    }
+
+    if (taxableIncome >= taxBracket.minimum && taxableIncome <= nextBracket.minimum) {
       return taxBracket.rate;
     }
   }
@@ -24,10 +30,18 @@ export const calculateIncomeTaxFor = (taxableIncome: number): [number, string] =
   // console.log("Calculating Tax for income: ", taxableIncome);
   for (let i = 0; i < taxBrackets.length; i++) {
     const taxBracket = taxBrackets[i];
+    const nextBracket = i < taxBrackets.length - 1 ? taxBrackets[i + 1] : undefined;
+
     if (taxableIncome <= taxBracket.minimum) {
       // console.log(`TaxableIncome ${taxableIncome} not in this bracket: ${taxBracket.rate}`)
       return [tax, formula];
-    } else if (taxableIncome >= taxBracket.minimum && taxableIncome <= taxBracket.maximum) {
+    } else if (!nextBracket) {
+      // console.log(`TaxableIncome ${taxableIncome} in the highest bracket: ${taxBracket.rate}`)
+      const increment = (taxableIncome - taxBracket.minimum) * taxBracket.rate;
+      formula += `(${currencyFormatter.format(taxableIncome)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
+      tax += increment;
+      // console.log("Tax incremented by ", increment, ". It is now: ", tax);
+    } else if (taxableIncome >= taxBracket.minimum && taxableIncome <= nextBracket.minimum) {
       // console.log(`TaxableIncome ${taxableIncome} ends in this bracket: ${taxBracket.rate}`)
       const increment = (taxableIncome - taxBracket.minimum) * taxBracket.rate;
       formula += `(${currencyFormatter.format(taxableIncome)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
@@ -35,8 +49,8 @@ export const calculateIncomeTaxFor = (taxableIncome: number): [number, string] =
       // console.log("Tax incremented by ", increment, ". It is now: ", tax);
     } else {
       // console.log(`TaxableIncome ${taxableIncome} exceeds this bracket: ${taxBracket.rate}`);
-      const increment = (taxBracket.maximum - taxBracket.minimum) * taxBracket.rate;
-      formula += `(${currencyFormatter.format(taxBracket.maximum)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
+      const increment = (nextBracket.minimum - taxBracket.minimum) * taxBracket.rate;
+      formula += `(${currencyFormatter.format(nextBracket.minimum)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
       formula += ` + `
       tax += increment;
       // console.log("Tax incremented by ", increment, ". It is now: ", tax);

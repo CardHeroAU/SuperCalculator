@@ -3,27 +3,22 @@
   "resident": [
     {
       "minimum": 0,
-      "maximum": 18200,
       "rate": 0
     },
     {
       "minimum": 18200,
-      "maximum": 45000,
       "rate": 0.19
     },
     {
       "minimum": 45000,
-      "maximum": 120000,
       "rate": 0.325
     },
     {
       "minimum": 120000,
-      "maximum": 180000,
       "rate": 0.37
     },
     {
       "minimum": 180000,
-      "maximum": 99999999999999999,
       "rate": 0.45
     }
   ]
