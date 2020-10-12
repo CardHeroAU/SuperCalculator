@@ -40,6 +40,7 @@ export const calculateIncomeTaxFor = (taxableIncome: number): [number, string] =
       const increment = (taxableIncome - taxBracket.minimum) * taxBracket.rate;
       formula += `(${currencyFormatter.format(taxableIncome)} - ${currencyFormatter.format(taxBracket.minimum)}) x ${(taxBracket.rate * 100).toFixed(2)}%`
       tax += increment;
+      return [tax, formula];
       // console.log("Tax incremented by ", increment, ". It is now: ", tax);
     } else if (taxableIncome >= taxBracket.minimum && taxableIncome <= nextBracket.minimum) {
       // console.log(`TaxableIncome ${taxableIncome} ends in this bracket: ${taxBracket.rate}`)
@@ -78,6 +79,6 @@ export const calculateConsessionalTaxFor = (superannuation: number) => {
   if (superannuation <= SUPER_TAX_TABLE.consessionalContributionCap) {
     return superannuation * SUPER_TAX_TABLE.consessoinalContributionRate;
   } else {
-    throw new Error("calculateConsessionalTaxFor(): " + superannuation + "exceeds consessional contribution cap" + SUPER_TAX_TABLE.consessionalContributionCap);
+    throw new Error("calculateConsessionalTaxFor(): " + superannuation + "exceeds concessional contribution cap" + SUPER_TAX_TABLE.consessionalContributionCap);
   }
 }

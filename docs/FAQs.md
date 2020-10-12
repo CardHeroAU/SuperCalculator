@@ -21,7 +21,7 @@ Since the income is split between tax and take-home, the less tax owed, the more
 
 # How is Superannuation Taxed?
 
-Generally speaking, the super is taxed at a consessional 15%. This includes 
+Generally speaking, the super is taxed at a concessional 15%. This includes 
 1. The Superanuation Guaruntee (The super employer pays you, usually 9.5%), and
 2. Any Superanuation Salary Sacrifice (What SuperCalculator estimates)
 
@@ -32,7 +32,7 @@ Based on the number, here is a comparison of how superanuation is taxed before a
 
 [Drag & Drop Bar adjusting %]
 
-Technically the more Salary Sacrifice into Superanuation, the more Superannuation tax you pay. However since Superannuation is taxed at a consessional 15%, much lower than the xx% marginal tax rate, it's the less of two evil and hence results in tax savings.
+Technically the more Salary Sacrifice into Superanuation, the more Superannuation tax you pay. However since Superannuation is taxed at a concessional 15%, much lower than the xx% marginal tax rate, it's the less of two evil and hence results in tax savings.
 
 [Image about less of 2 evil]
 
