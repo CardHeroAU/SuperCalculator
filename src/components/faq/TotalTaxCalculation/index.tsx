@@ -30,6 +30,7 @@ export const TotalTaxation = () => {
               Total Tax = Income Tax + Super Tax
             </Typography>
           </Paper>
+          <TotalTaxTable totalIncome={totalIncome} sacrificeRate={sacrificeRate}/>
           <Typography gutterBottom>
             Income Tax depends on Taxable Income
           </Typography>

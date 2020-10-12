@@ -10,8 +10,11 @@ export const SuperTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & Sacr
   const superGuaruntee = totalIncome * SUPER_GUARUNTEE;
   const salarySacrifice = totalIncome * sacrificeRate;
 
-  const superTaxBefore = calculateSuperTaxFor(superGuaruntee, totalIncome);
-  const superTaxAfter = calculateSuperTaxFor(superGuaruntee + salarySacrifice, totalIncome);
+  const [superConsessionalTaxBefore, superExcessTaxBefore] = calculateSuperTaxFor(superGuaruntee, totalIncome);
+  const [superConsessionalTaxAfter, superExcessTaxAfter] = calculateSuperTaxFor(superGuaruntee + salarySacrifice, totalIncome);
+
+  const superTaxBefore = superConsessionalTaxBefore + superExcessTaxBefore;
+  const superTaxAfter = superConsessionalTaxAfter + superExcessTaxAfter;
 
   const before = currencyFormatter.format(superTaxBefore);
   const after = currencyFormatter.format(superTaxAfter);
@@ -20,10 +23,26 @@ export const SuperTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & Sacr
   return (
     <>
       <TableRow >
-        <TableCell component="th" scope="row">Super Tax</TableCell>
-        <TableCell align="right" >{before}</TableCell>
-        <TableCell align="right" >{after}</TableCell>
+        <TableCell component="th" scope="row">Concessional Tax</TableCell>
+        <TableCell align="right" >{currencyFormatter.format(superConsessionalTaxBefore)}</TableCell>
+        <TableCell align="right" >{currencyFormatter.format(superConsessionalTaxAfter)}</TableCell>
       </TableRow>
+      {
+        superExcessTaxAfter > 0 && (
+          <>
+            <TableRow >
+              <TableCell component="th" scope="row">Excess Tax</TableCell>
+              <TableCell align="right" >{currencyFormatter.format(superExcessTaxBefore)}</TableCell>
+              <TableCell align="right" >{currencyFormatter.format(superExcessTaxAfter)}</TableCell>
+            </TableRow>
+            <TableRow >
+              <TableCell component="th" scope="row">Super Tax</TableCell>
+              <TableCell align="right" >{currencyFormatter.format(superTaxBefore)}</TableCell>
+              <TableCell align="right" >{currencyFormatter.format(superTaxAfter)}</TableCell>
+            </TableRow>
+          </>
+        )
+      }
       <TableRow >
         <TableCell />
         <TableCell align="right" >Savings</TableCell>

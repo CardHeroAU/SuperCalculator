@@ -15,7 +15,9 @@ export const IncomeTaxation = () => {
     sacrificeRate
   } = useSuperCalculator();
 
-  const [totalTax, formula] = calculateIncomeTaxFor(totalIncome);
+  const salarySacrifice = totalIncome * sacrificeRate;
+  const [totalTaxBefore, formulaBefore] = calculateIncomeTaxFor(totalIncome);
+  const [totalTaxAfter, formulaAfter] = calculateIncomeTaxFor(totalIncome - salarySacrifice);
 
   return (
     <Accordion>
@@ -32,18 +34,27 @@ export const IncomeTaxation = () => {
             Depending on one's income, tax is calculated based on income tax rates.
           </Typography>
           <Typography gutterBottom>
-            As of {INCOME_TAX_TABLE.updatedAt}, here's the Resident tax rates, excluding the Medicare levy of 2%.
+            As of {INCOME_TAX_TABLE.updatedAt}, here's the Resident tax rates, excluding the Medicare levy of 2%. For latest, please visit <Link href={"https://www.ato.gov.au/rates/individual-income-tax-rates/"}
+                                           target={"_blank"}>ATO</Link>.
           </Typography>
           <IncomeTaxRateTable />
-          <Typography>
-            E.g. If one's taxable income is $70,000, than his income tax will be
+          <Typography variant="h6">
+            Based on {currencyFormatter.format(totalIncome)} income, income tax will be
+          </Typography>
+          <Typography >
+            {formulaBefore} = {currencyFormatter.format(totalTaxBefore)}
           </Typography>
           <Typography variant="h6">
-            Income Tax = ${formula} = ${currencyFormatter.format(totalTax)}
+            With Salary Sacrifice of {(sacrificeRate * 100).toFixed(2)}%, income tax will be
           </Typography>
-          <Typography>
-            For latest, please visit <Link href={"https://www.ato.gov.au/rates/individual-income-tax-rates/"}
-                                                                                                            target={"_blank"}>ATO</Link>.
+          <Typography >
+            {formulaAfter} = {currencyFormatter.format(totalTaxAfter)}
+          </Typography>
+          <Typography variant="h6">
+            Tax Saving = {currencyFormatter.format(totalTaxBefore - totalTaxAfter)}
+          </Typography>
+          <Typography >
+            {currencyFormatter.format(totalTaxBefore)} - {currencyFormatter.format(totalTaxAfter)} = {currencyFormatter.format(totalTaxBefore - totalTaxAfter)}
           </Typography>
           <IncomeTaxTable totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
         </div>

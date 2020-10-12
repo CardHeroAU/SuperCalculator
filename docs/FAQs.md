@@ -1,9 +1,5 @@
 # How is Individual Income Tax calculated?
 
-Depending on one's income, tax is calculated based on income tax rates.  
-
-As of 20xx, here's the income tax table. For latest, please visit ATO.
-
 [Tax Table]
 
 Based on the number, the _taxable_ income is $xxxxx, with maginal tax rate xx%.
