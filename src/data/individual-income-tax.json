@@ -8,16 +8,16 @@
     },
     {
       "minimum": 18200,
-      "maximum": 37000,
+      "maximum": 45000,
       "rate": 0.19
     },
     {
-      "minimum": 37000,
-      "maximum": 90000,
+      "minimum": 45000,
+      "maximum": 120000,
       "rate": 0.325
     },
     {
-      "minimum": 90000,
+      "minimum": 120000,
       "maximum": 180000,
       "rate": 0.37
     },
