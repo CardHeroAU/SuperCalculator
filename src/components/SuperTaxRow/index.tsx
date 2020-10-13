@@ -1,23 +1,35 @@
 import {TableCell, TableRow} from "@material-ui/core";
 import React from "react";
 import {currencyFormatter} from "../../utils/formatter";
-import {SacrificeRateProp, TotalIncomeProp} from "../../utils/types";
-import {calculateSuperTaxFor} from "../../utils/calculator";
-import {SUPER_GUARUNTEE} from "../../utils/constants";
+import {useSuperCalculator} from "../../hooks";
 
-export const SuperTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & SacrificeRateProp) => {
+export const SuperTaxRow = () => {
 
-  const superGuaruntee = totalIncome * SUPER_GUARUNTEE;
-  const salarySacrifice = totalIncome * sacrificeRate;
+  const {
+    before: {
+      super: {
+        tax: superTaxBefore,
+        concessional: {
+          tax: superConsessionalTaxBefore
+        },
+        excess: {
+          tax: superExcessTaxBefore
+        }
+      }
+    },
+    after: {
+      super: {
+        tax: superTaxAfter,
+        concessional: {
+          tax: superConsessionalTaxAfter
+        },
+        excess: {
+          tax: superExcessTaxAfter
+        }
+      }
+    }
+  } = useSuperCalculator();
 
-  const [superConsessionalTaxBefore, superExcessTaxBefore] = calculateSuperTaxFor(superGuaruntee, totalIncome);
-  const [superConsessionalTaxAfter, superExcessTaxAfter] = calculateSuperTaxFor(superGuaruntee + salarySacrifice, totalIncome);
-
-  const superTaxBefore = superConsessionalTaxBefore + superExcessTaxBefore;
-  const superTaxAfter = superConsessionalTaxAfter + superExcessTaxAfter;
-
-  const before = currencyFormatter.format(superTaxBefore);
-  const after = currencyFormatter.format(superTaxAfter);
   const taxSavings = currencyFormatter.format(superTaxBefore - superTaxAfter);
 
   return (

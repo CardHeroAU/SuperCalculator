@@ -1,29 +1,36 @@
-import {calculateIncomeTaxFor, calculateSuperTaxFor} from "../../utils/calculator";
-import {SUPER_GUARUNTEE} from "../../utils/constants";
 import {TableCell, TableRow} from "@material-ui/core";
 import React from "react";
 import {currencyFormatter} from "../../utils/formatter";
-import {SacrificeRateProp, TotalIncomeProp} from "../../utils/types";
+import {useSuperCalculator} from "../../hooks";
 
-export const TotalTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & SacrificeRateProp) => {
+export const TotalTaxRow = () => {
 
-  const superGuaruntee = totalIncome * SUPER_GUARUNTEE;
-  const superSacrifice = totalIncome * sacrificeRate;
-  const taxableIncome = totalIncome - superSacrifice;
+  const {
+    before: {
+      income: {
+        tax: incomeTaxBefore
+      },
+      super: {
+        tax: superTaxBefore
+      }
+    },
+    after: {
+      income: {
+        tax: incomeTaxAfter
+      },
+      super: {
+        tax: superTaxAfter
+      }
+    }
+  } = useSuperCalculator();
 
-  const [incomeTaxWithoutSacrifice] = calculateIncomeTaxFor(totalIncome);
-  const [superConsessionalTaxBefore, superExcessTaxBefore] = calculateSuperTaxFor(superGuaruntee, totalIncome);
-  const superTaxWithoutSacrifice = superConsessionalTaxBefore + superExcessTaxBefore;
-  const totalTaxWithoutSacrifice = incomeTaxWithoutSacrifice + superTaxWithoutSacrifice;
+  const totalTaxBefore = incomeTaxBefore + superTaxBefore;
 
-  const [incomeTaxWithSacrifice] = calculateIncomeTaxFor(taxableIncome);
-  const [superConsessionalTaxAfter, superExcessTaxAfter] = calculateSuperTaxFor(superGuaruntee + superSacrifice, totalIncome);
-  const superTaxWithSacrifice = superConsessionalTaxAfter + superExcessTaxAfter;
-  const totalTaxWithSacrifice = incomeTaxWithSacrifice + superTaxWithSacrifice;
+  const totalTaxAfter = incomeTaxAfter + superTaxAfter;
 
-  const before = currencyFormatter.format(totalTaxWithoutSacrifice);
-  const after = currencyFormatter.format(totalTaxWithSacrifice);
-  const taxSavings = currencyFormatter.format(totalTaxWithoutSacrifice - totalTaxWithSacrifice);
+  const before = currencyFormatter.format(totalTaxBefore);
+  const after = currencyFormatter.format(totalTaxAfter);
+  const taxSavings = currencyFormatter.format(totalTaxBefore - totalTaxAfter);
 
   return (
     <>

@@ -7,13 +7,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import {SacrificeRateProp, TotalIncomeProp} from "../../utils/types";
-
 import {SuperSacrificeRow} from "../SuperSacrificeRow";
-import {SuperGuarunteeRow} from "../SuperGuarunteeRow";
+import {SuperGuaranteeRow} from "../SuperGuarunteeRow";
 import {SuperTotalRow} from "../SuperTotalRow";
 
-export const SuperTable = ({totalIncome, sacrificeRate}: TotalIncomeProp & SacrificeRateProp) => (
+export const SuperTable = () => (
   <TableContainer component={Paper}>
     <Table aria-label="collapsible table">
       <TableHead>
@@ -24,9 +22,9 @@ export const SuperTable = ({totalIncome, sacrificeRate}: TotalIncomeProp & Sacri
         </TableRow>
       </TableHead>
       <TableBody>
-        <SuperGuarunteeRow totalIncome={totalIncome} />
-        <SuperSacrificeRow totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
-        <SuperTotalRow totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
+        <SuperGuaranteeRow  />
+        <SuperSacrificeRow />
+        <SuperTotalRow />
       </TableBody>
     </Table>
   </TableContainer>

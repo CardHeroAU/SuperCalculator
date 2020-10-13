@@ -1,15 +1,22 @@
 import {TableCell, TableRow} from "@material-ui/core";
 import React from "react";
 import {currencyFormatter} from "../../utils/formatter";
-import {SacrificeRateProp, TotalIncomeProp} from "../../utils/types";
-import {calculateIncomeTaxFor} from "../../utils/calculator";
+import {useSuperCalculator} from "../../hooks";
 
-export const IncomeTaxRow = ({totalIncome, sacrificeRate}: TotalIncomeProp & SacrificeRateProp) => {
+export const IncomeTaxRow = () => {
 
-  const salarySacrifice = totalIncome * sacrificeRate;
-
-  const [incomeTaxBefore] = calculateIncomeTaxFor(totalIncome);
-  const [incomeTaxAfter] = calculateIncomeTaxFor(totalIncome - salarySacrifice);
+  const {
+    before: {
+      income: {
+        tax: incomeTaxBefore
+      }
+    },
+    after: {
+      income: {
+        tax: incomeTaxAfter
+      }
+    }
+  } = useSuperCalculator();
 
   const before = currencyFormatter.format(incomeTaxBefore);
   const after = currencyFormatter.format(incomeTaxAfter);

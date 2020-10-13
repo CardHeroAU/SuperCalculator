@@ -1,15 +1,9 @@
 import {Accordion, AccordionDetails, AccordionSummary, Paper, Typography} from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from "react";
-import {useSuperCalculator} from "../../../hooks";
 import {TotalTaxTable} from "../../TotalTaxTable";
 
 export const TotalTaxation = () => {
-
-  const {
-    totalIncome,
-    sacrificeRate
-  } = useSuperCalculator();
 
   return (
     <Accordion>
@@ -30,7 +24,7 @@ export const TotalTaxation = () => {
               Total Tax = Income Tax + Super Tax
             </Typography>
           </Paper>
-          <TotalTaxTable totalIncome={totalIncome} sacrificeRate={sacrificeRate}/>
+          <TotalTaxTable />
           <Typography gutterBottom>
             Income Tax depends on Taxable Income
           </Typography>

@@ -10,14 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import {TotalIncomeRow} from "../TotalIncomeRow";
 import {SuperSacrificeRow} from "../SuperSacrificeRow";
 import {TotalTaxRow} from "../TotalTaxRow";
-import {useSuperCalculator} from "../../hooks";
 
 export const SummaryTable = () => {
-
-  const {
-    totalIncome,
-    sacrificeRate
-  } = useSuperCalculator();
 
   return (
     <TableContainer component={Paper}>
@@ -30,9 +24,9 @@ export const SummaryTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TotalIncomeRow totalIncome={totalIncome} />
-          <SuperSacrificeRow totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
-          <TotalTaxRow totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
+          <TotalIncomeRow />
+          <SuperSacrificeRow  />
+          <TotalTaxRow  />
         </TableBody>
       </Table>
     </TableContainer>

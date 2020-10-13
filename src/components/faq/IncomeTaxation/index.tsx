@@ -5,19 +5,26 @@ import {useSuperCalculator} from "../../../hooks";
 import {IncomeTaxTable} from "../../IncomeTaxTable";
 import * as INCOME_TAX_TABLE from "../../../data/individual-income-tax.json";
 import {IncomeTaxRateTable} from "../../IncomeTaxRateTable";
-import {calculateIncomeTaxFor} from "../../../utils/calculator";
 import {currencyFormatter} from "../../../utils/formatter";
 
 export const IncomeTaxation = () => {
 
   const {
-    totalIncome,
-    sacrificeRate
+    sacrificeRate,
+    before: {
+      income: {
+        total: totalIncomeBefore,
+        tax: totalTaxBefore,
+        formula: formulaBefore,
+      }
+    },
+    after: {
+      income: {
+        tax: totalTaxAfter,
+        formula: formulaAfter,
+      }
+    }
   } = useSuperCalculator();
-
-  const salarySacrifice = totalIncome * sacrificeRate;
-  const [totalTaxBefore, formulaBefore] = calculateIncomeTaxFor(totalIncome);
-  const [totalTaxAfter, formulaAfter] = calculateIncomeTaxFor(totalIncome - salarySacrifice);
 
   return (
     <Accordion>
@@ -39,7 +46,7 @@ export const IncomeTaxation = () => {
           </Typography>
           <IncomeTaxRateTable />
           <Typography variant="h6">
-            Based on {currencyFormatter.format(totalIncome)} income, income tax will be
+            Based on {currencyFormatter.format(totalIncomeBefore)} income, income tax will be
           </Typography>
           <Typography >
             {formulaBefore} = {currencyFormatter.format(totalTaxBefore)}
@@ -56,7 +63,7 @@ export const IncomeTaxation = () => {
           <Typography >
             {currencyFormatter.format(totalTaxBefore)} - {currencyFormatter.format(totalTaxAfter)} = {currencyFormatter.format(totalTaxBefore - totalTaxAfter)}
           </Typography>
-          <IncomeTaxTable totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
+          <IncomeTaxTable  />
         </div>
       </AccordionDetails>
     </Accordion>

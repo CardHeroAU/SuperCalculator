@@ -1,12 +1,25 @@
 import {TableCell, TableRow} from "@material-ui/core";
 import React from "react";
 import {currencyFormatter} from "../../utils/formatter";
-import {TotalIncomeProp} from "../../utils/types";
+import {useSuperCalculator} from "../../hooks";
 
-export const TotalIncomeRow = ({totalIncome}: TotalIncomeProp) => {
+export const TotalIncomeRow = () => {
 
-  const before = currencyFormatter.format(totalIncome);
-  const after = currencyFormatter.format(totalIncome);
+  const {
+    before: {
+      income: {
+        total: totalIncomeBefore
+      }
+    },
+    after: {
+      income: {
+        total: totalIncomeAfter
+      }
+    }
+  } = useSuperCalculator();
+
+  const before = currencyFormatter.format(totalIncomeBefore);
+  const after = currencyFormatter.format(totalIncomeAfter);
 
   return (
     <TableRow >

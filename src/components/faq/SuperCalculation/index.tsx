@@ -8,7 +8,11 @@ import {currencyFormatter} from "../../../utils/formatter";
 export const SuperCalculation = () => {
 
   const {
-    totalIncome,
+    before: {
+      income: {
+        total: totalIncomeBefore
+      }
+    },
     sacrificeRate
   } = useSuperCalculator();
 
@@ -33,9 +37,9 @@ export const SuperCalculation = () => {
             2. Any Super Salary Sacrifice (What SuperCalculator estimates)
           </Typography>
           <Typography>
-            Based on {currencyFormatter.format(totalIncome)} income and {(sacrificeRate * 100).toFixed(2)}%, here is a comparison of how super is contributed before and after salary sacrifice.
+            Based on {currencyFormatter.format(totalIncomeBefore)} income and {(sacrificeRate * 100).toFixed(2)}%, here is a comparison of how super is contributed before and after salary sacrifice.
           </Typography>
-          <SuperTable totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
+          <SuperTable />
         </div>
       </AccordionDetails>
     </Accordion>

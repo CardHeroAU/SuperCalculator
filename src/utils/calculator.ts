@@ -60,25 +60,20 @@ export const calculateIncomeTaxFor = (taxableIncome: number): [number, string] =
   return [tax, formula];
 }
 
+export const calculateConcessionalSuper = (superannuation: number) => {
+  const hasExcessContribution = superannuation > SUPER_TAX_TABLE.consessionalContributionCap
+  const concessionalContribution = !hasExcessContribution ? superannuation : SUPER_TAX_TABLE.consessionalContributionCap;
+  const excessContribution  = !hasExcessContribution ? 0 : superannuation - SUPER_TAX_TABLE.consessionalContributionCap;
+  return [concessionalContribution, excessContribution];
+}
+
 export const calculateSuperTaxFor = (superannuation: number, taxableIncome: number) => {
-  if (superannuation <= SUPER_TAX_TABLE.consessionalContributionCap) {
-    return [calculateConsessionalTaxFor(superannuation), 0];
-  } else {
-    const consessionalContributionTax = calculateConsessionalTaxFor(SUPER_TAX_TABLE.consessionalContributionCap);
-    const excessConsessionalContributionTax = calculateExcessContributionTaxFor(superannuation, taxableIncome);
-    return [consessionalContributionTax, excessConsessionalContributionTax];
-  }
-}
+  const [concessionalContribution, excessContribution] = calculateConcessionalSuper(superannuation);
 
-export const calculateExcessContributionTaxFor = (superannuation: number, taxableIncome: number) => {
   const marginalTaxRate = calculateMarginalTaxRate(taxableIncome);
-  return (superannuation - SUPER_TAX_TABLE.consessionalContributionCap) * marginalTaxRate;
-}
 
-export const calculateConsessionalTaxFor = (superannuation: number) => {
-  if (superannuation <= SUPER_TAX_TABLE.consessionalContributionCap) {
-    return superannuation * SUPER_TAX_TABLE.consessoinalContributionRate;
-  } else {
-    throw new Error("calculateConsessionalTaxFor(): " + superannuation + "exceeds concessional contribution cap" + SUPER_TAX_TABLE.consessionalContributionCap);
-  }
+  const concessionalContributionTax = concessionalContribution * SUPER_TAX_TABLE.consessoinalContributionRate;
+  const excessContributionTax = excessContribution * marginalTaxRate;
+
+  return [concessionalContributionTax, excessContributionTax]
 }

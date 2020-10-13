@@ -4,22 +4,30 @@ import * as SUPER_TAX_TABLE from "../../../data/super-tax.json";
 import React from "react";
 import {useSuperCalculator} from "../../../hooks";
 import {SuperTaxTable} from "../../SuperTaxTable";
-import {calculateMarginalTaxRate, calculateSuperTaxFor} from "../../../utils/calculator";
-import {SUPER_GUARUNTEE} from "../../../utils/constants";
+import {calculateMarginalTaxRate} from "../../../utils/calculator";
 import {currencyFormatter} from "../../../utils/formatter";
 
 export const SuperTaxation = () => {
 
   const {
-    totalIncome,
+    after: {
+      income: {
+        total: totalIncome
+      },
+      super: {
+        concessional: {
+          guarantee: superGuaruntee,
+          sacrifice: salarySacrifice
+        },
+        excess: {
+          total: superExcessTaxAfter
+        }
+      }
+    },
     sacrificeRate
   } = useSuperCalculator();
 
-  const superGuaruntee = totalIncome * SUPER_GUARUNTEE;
-  const salarySacrifice = totalIncome * sacrificeRate;
-
   const marginalTaxRate = calculateMarginalTaxRate(totalIncome);
-  const [superConsessionalTaxAfter, superExcessTaxAfter] = calculateSuperTaxFor(superGuaruntee + salarySacrifice, totalIncome);
 
   return (
     <Accordion>
@@ -60,7 +68,7 @@ export const SuperTaxation = () => {
           <Typography>
             Based on {currencyFormatter.format(totalIncome)} income and {(sacrificeRate * 100).toFixed(2)}%, here is a comparison of how super is taxed before and after salary sacrifice.
           </Typography>
-          <SuperTaxTable totalIncome={totalIncome} sacrificeRate={sacrificeRate} />
+          <SuperTaxTable />
           <Typography>
             Technically the more Salary Sacrifice, the more Super tax. However, given Super is taxed at concessional {(SUPER_TAX_TABLE.consessoinalContributionRate*100).toFixed(2)}%, lower than the marginal {(marginalTaxRate * 100).toFixed(2)}%, it's the less of two evil and hence results in tax savings.
           </Typography>

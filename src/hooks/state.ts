@@ -1,21 +1,21 @@
 interface TaxInfo {
+  total: number;
   tax: number;
   formula: string;
 }
 
 interface IncomeInfo extends TaxInfo {
-  total: number;
   taxable: number;
 }
 
-interface ConsessionalSuper {
+interface ConcessionalSuper extends TaxInfo {
   guarantee: number;
   sacrifice: number;
 }
 
-interface SuperInfo extends TaxInfo {
-  total: number;
-  concessional: ConsessionalSuper;
+interface SuperInfo extends TaxInfo{
+  concessional: ConcessionalSuper;
+  excess: TaxInfo;
 }
 
 interface ResultInfo {
@@ -40,12 +40,20 @@ export const initialState: SuperCalculatorState = {
     },
     super: {
       total: 0,
-      concessional: {
-        guarantee: 0,
-        sacrifice: 0,
-      },
       tax: 0,
-      formula: ""
+      formula: "",
+      concessional: {
+        total: 0,
+        tax: 0,
+        formula: "",
+        guarantee: 0,
+        sacrifice: 0
+      },
+      excess: {
+        total: 0,
+        tax: 0,
+        formula: ""
+      }
     }
   },
   after: {
@@ -57,12 +65,20 @@ export const initialState: SuperCalculatorState = {
     },
     super: {
       total: 0,
-      concessional: {
-        guarantee: 0,
-        sacrifice: 0,
-      },
       tax: 0,
-      formula: ""
+      formula: "",
+      concessional: {
+        total: 0,
+        tax: 0,
+        formula: "",
+        guarantee: 0,
+        sacrifice: 0
+      },
+      excess: {
+        total: 0,
+        tax: 0,
+        formula: ""
+      }
     }
   }
 }
