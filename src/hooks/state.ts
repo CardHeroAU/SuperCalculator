@@ -36,49 +36,49 @@ export const initialState: SuperCalculatorState = {
       total: 0,
       taxable: 0,
       tax: 0,
-      formula: ""
+      formula: '',
     },
     super: {
       total: 0,
       tax: 0,
-      formula: "",
+      formula: '',
       concessional: {
         total: 0,
         tax: 0,
-        formula: "",
+        formula: '',
         guarantee: 0,
-        sacrifice: 0
+        sacrifice: 0,
       },
       excess: {
         total: 0,
         tax: 0,
-        formula: ""
-      }
-    }
+        formula: '',
+      },
+    },
   },
   after: {
     income: {
       total: 0,
       taxable: 0,
       tax: 0,
-      formula: ""
+      formula: '',
     },
     super: {
       total: 0,
       tax: 0,
-      formula: "",
+      formula: '',
       concessional: {
         total: 0,
         tax: 0,
-        formula: "",
+        formula: '',
         guarantee: 0,
-        sacrifice: 0
+        sacrifice: 0,
       },
       excess: {
         total: 0,
         tax: 0,
-        formula: ""
-      }
-    }
-  }
-}
+        formula: '',
+      },
+    },
+  },
+};

@@ -1,19 +1,20 @@
-import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@material-ui/core";
+import {
+  Accordion, AccordionDetails, AccordionSummary, Typography,
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import React from "react";
-import {SuperTable} from "../../SuperTable";
-import {useSuperCalculator} from "../../../hooks";
-import {currencyFormatter} from "../../../utils/formatter";
+import React from 'react';
+import { SuperTable } from '../../SuperTable';
+import { useSuperCalculator } from '../../../hooks';
+import currencyFormatter from '../../../utils/formatter';
 
 export const SuperCalculation = () => {
-
   const {
     before: {
       income: {
-        total: totalIncomeBefore
-      }
+        total: totalIncomeBefore,
+      },
     },
-    sacrificeRate
+    sacrificeRate,
   } = useSuperCalculator();
 
   return (
@@ -23,7 +24,7 @@ export const SuperCalculation = () => {
         id="superannuation-calculation"
         aria-controls="superannuation-calculation"
       >
-        <Typography >How is Super Calculated?</Typography>
+        <Typography>How is Super Calculated?</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <div>
@@ -37,11 +38,18 @@ export const SuperCalculation = () => {
             2. Any Super Salary Sacrifice (What SuperCalculator estimates)
           </Typography>
           <Typography>
-            Based on {currencyFormatter.format(totalIncomeBefore)} income and {(sacrificeRate * 100).toFixed(2)}%, here is a comparison of how super is contributed before and after salary sacrifice.
+            Based on
+            {' '}
+            {currencyFormatter.format(totalIncomeBefore)}
+            {' '}
+            income and
+            {' '}
+            {(sacrificeRate * 100).toFixed(2)}
+            %, here is a comparison of how super is contributed before and after salary sacrifice.
           </Typography>
           <SuperTable />
         </div>
       </AccordionDetails>
     </Accordion>
-  )
-}
+  );
+};

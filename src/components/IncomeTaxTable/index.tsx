@@ -7,15 +7,15 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import {TaxableIncomeRow} from "../TaxableIncomeRow";
-import {IncomeTaxRow} from "../IncomeTaxRow";
+import { TaxableIncomeRow } from '../TaxableIncomeRow';
+import { IncomeTaxRow } from '../IncomeTaxRow';
 
 export const IncomeTaxTable = () => (
   <TableContainer component={Paper}>
     <Table aria-label="collapsible table">
       <TableHead>
         <TableRow>
-          <TableCell >Income Tax</TableCell>
+          <TableCell>Income Tax</TableCell>
           <TableCell align="right">Original</TableCell>
           <TableCell align="right">With Sacrifice</TableCell>
         </TableRow>
@@ -26,4 +26,4 @@ export const IncomeTaxTable = () => (
       </TableBody>
     </Table>
   </TableContainer>
-)
+);

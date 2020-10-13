@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import Input from '@material-ui/core/Input';
 import AttachMoney from '@material-ui/icons/AttachMoney';
-import {withStyles} from "@material-ui/core";
+import { withStyles } from '@material-ui/core';
 
 export const SuperSlider = withStyles({
   root: {
@@ -36,7 +36,6 @@ export const SuperSlider = withStyles({
 })(Slider);
 
 export const SuperSliderInput = () => {
-
   const [value, setValue] = React.useState<number | string | Array<number | string>>(30);
 
   const handleSliderChange = (event: any, newValue: number | number[]) => {
@@ -88,4 +87,4 @@ export const SuperSliderInput = () => {
       </Grid>
     </Grid>
   );
-}
+};

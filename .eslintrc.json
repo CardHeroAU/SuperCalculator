@@ -20,5 +20,39 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      // note you must disable the base rule as it can report incorrect errors
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"],
+      // configure the react/jsx-filename-extension rule in your .eslintrc.js so that ESLint is happy about JSX inside your TypeScript files:
+      "react/jsx-filename-extension": [
+        2,
+        {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      ],
+      // Turn off default export check for React Components
+      "import/prefer-default-export": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
     }
 }
