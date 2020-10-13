@@ -39,13 +39,14 @@ export const IncomeTaxation = () => {
       <AccordionDetails>
         <div>
           <Typography>
-            Depending on one's income, tax is calculated based on income tax rates.
+            Depending on one&rsquo;s income, tax is calculated based on income tax rates.
           </Typography>
           <Typography gutterBottom>
             As of
             {' '}
             {INCOME_TAX_TABLE.updatedAt}
-            , here's the Resident tax rates, excluding the Medicare levy of 2%. For latest, please visit
+            , here&rsquo;s the Resident tax rates, excluding the
+            Medicare levy of 2%. For latest, please visit
             {' '}
             <Link
               href="https://www.ato.gov.au/rates/individual-income-tax-rates/"

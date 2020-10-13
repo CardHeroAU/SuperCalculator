@@ -17,7 +17,8 @@ export const WhatIsSuper = () => (
     <AccordionDetails>
       <div>
         <Typography paragraph>
-          Super, or superannuation, is money set aside during your working life for when you retire. Your super is your future.
+          Super, or superannuation, is money set aside during your working life for when you retire.
+          Your super is your future.
         </Typography>
         <Typography paragraph>
           Super (including super guarantee from your employer), is your money.

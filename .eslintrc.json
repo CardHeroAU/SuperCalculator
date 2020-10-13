@@ -35,7 +35,7 @@
       "@typescript-eslint/no-use-before-define": ["error"],
       // configure the react/jsx-filename-extension rule in your .eslintrc.js so that ESLint is happy about JSX inside your TypeScript files:
       "react/jsx-filename-extension": [
-        2,
+        "error",
         {
           "extensions": [
             ".js",
@@ -46,7 +46,12 @@
         }
       ],
       // Turn off default export check for React Components
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      // Turn off prop-type checking, as typing is handled by TypeScript
+      "react/prop-types": "off",
+      // Use Typescript rules instead
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
     },
     "settings": {
       "import/resolver": {

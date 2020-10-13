@@ -57,7 +57,7 @@ export const SuperInput = ({
         id="totalIncomeSelect"
         className={classes.input}
         value={totalIncome}
-        onChange={(event) => updateTotalIncome(parseInt(event.target.value))}
+        onChange={(event) => updateTotalIncome(parseInt(event.target.value, 10))}
         type="number"
         placeholder="Enter Total Income"
         inputProps={{ 'aria-label': 'search google maps' }}
@@ -83,7 +83,11 @@ export const SuperInput = ({
       >
         <Remove />
       </IconButton>
-      <InputBase value={(sacrificeRate * 100).toFixed(0)} onChange={(event) => updateSacrificeRate(parseInt(event.target.value) / 100)} style={{ width: 20 }} />
+      <InputBase
+        value={(sacrificeRate * 100).toFixed(0)}
+        onChange={(event) => updateSacrificeRate(parseInt(event.target.value, 10) / 100)}
+        style={{ width: 20 }}
+      />
       <Tooltip title="Salary Sacrifice">
         <Typography>
           %

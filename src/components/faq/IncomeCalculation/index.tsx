@@ -17,7 +17,7 @@ export const IncomeCalculation = () => (
     <AccordionDetails>
       <div>
         <Typography>
-          Taxable income referes to the portion of the income that's subject to Income Tax.
+          Taxable income referes to the portion of the income that&rsquo;s subject to Income Tax.
         </Typography>
         <Typography>
           Usually, this means 100% of your Total Income.

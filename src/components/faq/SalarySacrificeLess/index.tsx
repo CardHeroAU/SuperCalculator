@@ -26,7 +26,8 @@ export const SalarySacrificeLess = () => (
           <img src={image} alt="salary-sacrifice-less" width="100%" />
         </Paper>
         <Typography paragraph>
-          It's about timing. Does one wish to receive all the money now? Or does one want to receive more money in the future?
+          It&rsquo;s about timing. Does one wish to receive all the money now?
+          Or does one want to receive more money in the future?
         </Typography>
       </div>
     </AccordionDetails>

@@ -61,7 +61,12 @@ export const SuperTaxation = () => {
               {(calculateMarginalTaxRate(totalIncome) * 100).toFixed(2)}
               % tax on the Excess Contribution.
 
-              <Link href="https://www.ato.gov.au/individuals/super/in-detail/growing-your-super/super-contributions---too-much-can-mean-extra-tax/" target="_blank">ATO Excess Contribution Tax</Link>
+              <Link
+                href="https://www.ato.gov.au/individuals/super/in-detail/growing-your-super/super-contributions---too-much-can-mean-extra-tax/"
+                target="_blank"
+              >
+                ATO Excess Contribution Tax
+              </Link>
             </Typography>
             <Typography>
               Excess Contribution =
@@ -78,12 +83,12 @@ export const SuperTaxation = () => {
               {' '}
               =
               {' '}
-              {currencyFormatter.format(superGuaruntee + salarySacrifice - SUPER_TAX_TABLE.consessionalContributionCap)}
+              {currencyFormatter.format(superExcessTaxAfter)}
             </Typography>
             <Typography>
               Excess Contribution Tax =
               {' '}
-              {currencyFormatter.format(superGuaruntee + salarySacrifice - SUPER_TAX_TABLE.consessionalContributionCap)}
+              {currencyFormatter.format(superExcessTaxAfter)}
               {' '}
               *
               {' '}
@@ -106,13 +111,14 @@ export const SuperTaxation = () => {
           </Typography>
           <SuperTaxTable />
           <Typography>
-            Technically the more Salary Sacrifice, the more Super tax. However, given Super is taxed at concessional
+            Technically the more Salary Sacrifice, the more Super tax. However,
+            given Super is taxed at concessional
             {' '}
             {(SUPER_TAX_TABLE.consessoinalContributionRate * 100).toFixed(2)}
             %, lower than the marginal
             {' '}
             {(marginalTaxRate * 100).toFixed(2)}
-            %, it's the less of two evil and hence results in tax savings.
+            %, it&rsquo;s the less of two evil and hence results in tax savings.
           </Typography>
         </div>
       </AccordionDetails>

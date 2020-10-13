@@ -75,8 +75,8 @@ export const calculateSuperTaxFor = (superannuation: number, taxableIncome: numb
 
   const marginalTaxRate = calculateMarginalTaxRate(taxableIncome);
 
-  const concessionalContributionTax = concessionalContribution * SUPER_TAX_TABLE.consessoinalContributionRate;
-  const excessContributionTax = excessContribution * marginalTaxRate;
+  const concessionalTax = concessionalContribution * SUPER_TAX_TABLE.consessoinalContributionRate;
+  const excessTax = excessContribution * marginalTaxRate;
 
-  return [concessionalContributionTax, excessContributionTax];
+  return [concessionalTax, excessTax];
 };
