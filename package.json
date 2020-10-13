@@ -21,6 +21,7 @@
     "start": "yarn run start:app",
     "start:app": "react-scripts start",
     "start:storybook": "start-storybook -p 6006 -s public",
+    "lint": "eslint --ext .tsx,.ts ./src",
     "build": "yarn build:app && yarn build:storybook",
     "build:app": "react-scripts build",
     "build:storybook": "build-storybook -s public -o build/storybook",
@@ -50,8 +51,14 @@
     "@storybook/node-logger": "^6.0.25",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.25",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
     "babel-loader": "^8.1.0",
     "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.4",
     "react-is": "^16.13.1"
   }
 }
