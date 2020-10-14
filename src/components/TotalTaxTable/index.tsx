@@ -7,16 +7,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-import {IncomeTaxRow} from "../IncomeTaxRow";
-import {SuperTaxRow} from "../SuperTaxRow";
-import {TotalTaxRow} from "../TotalTaxRow";
+import { IncomeTaxRow } from '../IncomeTaxRow';
+import { SuperTaxRow } from '../SuperTaxRow';
+import { TotalTaxRow } from '../TotalTaxRow';
 
 export const TotalTaxTable = () => (
   <TableContainer component={Paper}>
     <Table aria-label="collapsible table">
       <TableHead>
         <TableRow>
-          <TableCell >Total Tax</TableCell>
+          <TableCell>Total Tax</TableCell>
           <TableCell align="right">Original</TableCell>
           <TableCell align="right">With Sacrifice</TableCell>
         </TableRow>
@@ -28,4 +28,4 @@ export const TotalTaxTable = () => (
       </TableBody>
     </Table>
   </TableContainer>
-)
+);

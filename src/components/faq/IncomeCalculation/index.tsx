@@ -1,7 +1,9 @@
-import {Accordion, AccordionDetails, AccordionSummary, Paper, Typography} from "@material-ui/core";
+import {
+  Accordion, AccordionDetails, AccordionSummary, Paper, Typography,
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import React from "react";
-import {IncomeTable} from "../../IncomeTable";
+import React from 'react';
+import { IncomeTable } from '../../IncomeTable';
 
 export const IncomeCalculation = () => (
   <Accordion>
@@ -10,12 +12,12 @@ export const IncomeCalculation = () => (
       id="superannuation-calculation"
       aria-controls="superannuation-calculation"
     >
-      <Typography >What is Taxable Income?</Typography>
+      <Typography>What is Taxable Income?</Typography>
     </AccordionSummary>
     <AccordionDetails>
       <div>
         <Typography>
-          Taxable income referes to the portion of the income that's subject to Income Tax.
+          Taxable income referes to the portion of the income that&rsquo;s subject to Income Tax.
         </Typography>
         <Typography>
           Usually, this means 100% of your Total Income.
@@ -32,4 +34,4 @@ export const IncomeCalculation = () => (
       </div>
     </AccordionDetails>
   </Accordion>
-)
+);

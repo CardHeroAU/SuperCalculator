@@ -1,21 +1,20 @@
-import {TableCell, TableRow} from "@material-ui/core";
-import React from "react";
-import {currencyFormatter} from "../../utils/formatter";
-import {useSuperCalculator} from "../../hooks";
+import { TableCell, TableRow } from '@material-ui/core';
+import React from 'react';
+import currencyFormatter from '../../utils/formatter';
+import { useSuperCalculator } from '../../hooks';
 
 export const IncomeTaxRow = () => {
-
   const {
     before: {
       income: {
-        tax: incomeTaxBefore
-      }
+        tax: incomeTaxBefore,
+      },
     },
     after: {
       income: {
-        tax: incomeTaxAfter
-      }
-    }
+        tax: incomeTaxAfter,
+      },
+    },
   } = useSuperCalculator();
 
   const before = currencyFormatter.format(incomeTaxBefore);
@@ -24,16 +23,16 @@ export const IncomeTaxRow = () => {
 
   return (
     <>
-      <TableRow >
+      <TableRow>
         <TableCell component="th" scope="row">Income Tax</TableCell>
-        <TableCell align="right" >{before}</TableCell>
-        <TableCell align="right" >{after}</TableCell>
+        <TableCell align="right">{before}</TableCell>
+        <TableCell align="right">{after}</TableCell>
       </TableRow>
-      <TableRow >
+      <TableRow>
         <TableCell />
-        <TableCell align="right" >Savings</TableCell>
-        <TableCell align="right" >{taxSavings}</TableCell>
+        <TableCell align="right">Savings</TableCell>
+        <TableCell align="right">{taxSavings}</TableCell>
       </TableRow>
     </>
   );
-}
+};

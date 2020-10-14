@@ -8,9 +8,9 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4649caaf5188bf8ad5c2/test_coverage)](https://codeclimate.com/github/CardHeroAU/SuperCalculator/test_coverage)
 
-[![Known Vulnerabilities](https://snyk.io/test/github/CardHeroAU/SuperCalculator/badge.svg)](https://snyk.io/test/github/CardHeroAU/SuperCalculator)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8fe030ea-bca6-4872-b42c-d6a4fac563f9/deploy-status)](https://app.netlify.com/sites/admiring-northcutt-b8506c/deploys)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/CardHeroAU/SuperCalculator/badge.svg)](https://snyk.io/test/github/CardHeroAU/SuperCalculator)
 
 ## The Problem
 

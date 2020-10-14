@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { SuperCalculatorContext } from './context';
-import {calculateConcessionalSuper, calculateIncomeTaxFor, calculateSuperTaxFor} from "../utils/calculator";
-import {SUPER_GUARUNTEE} from "../utils/constants";
+import { calculateConcessionalSuper, calculateIncomeTaxFor, calculateSuperTaxFor } from '../utils/calculator';
+import { SUPER_GUARUNTEE } from '../utils/constants';
 
 interface SuperCalculatorProviderProps {
   totalIncome: number;
   sacrificeRate: number;
 }
 
-export const SuperCalculatorProvider: React.FunctionComponent<SuperCalculatorProviderProps> = ({ children, totalIncome,sacrificeRate }) => {
-
+export const SuperCalculatorProvider: React.FC<SuperCalculatorProviderProps> = ({
+  children,
+  totalIncome,
+  sacrificeRate,
+}) => {
   const superGuarantee = totalIncome * SUPER_GUARUNTEE;
   const salarySacrifice = totalIncome * sacrificeRate;
 
@@ -20,13 +23,25 @@ export const SuperCalculatorProvider: React.FunctionComponent<SuperCalculatorPro
   const totalSuperAfter = superGuarantee + salarySacrifice;
 
   const [incomeTaxBefore, formulaBefore] = calculateIncomeTaxFor(taxableIncomeBefore);
-  const [concessionalContributionBefore, excessContributionBefore] = calculateConcessionalSuper(totalSuperBefore);
-  const [concessionalTaxBefore, excessTaxBefore] = calculateSuperTaxFor(totalSuperBefore, taxableIncomeBefore);
+  const [
+    concessionalContributionBefore,
+    excessContributionBefore,
+  ] = calculateConcessionalSuper(totalSuperBefore);
+  const [
+    concessionalTaxBefore,
+    excessTaxBefore,
+  ] = calculateSuperTaxFor(totalSuperBefore, taxableIncomeBefore);
   const superTaxBefore = concessionalTaxBefore + excessTaxBefore;
 
   const [incomeTaxAfter, formulaAfter] = calculateIncomeTaxFor(taxableIncomeAfter);
-  const [concessionalContributionAfter, excessContributionAfter] = calculateConcessionalSuper(totalSuperAfter);
-  const [concessionalTaxAfter, excessTaxAfter] = calculateSuperTaxFor(totalSuperAfter, taxableIncomeAfter);
+  const [
+    concessionalContributionAfter,
+    excessContributionAfter,
+  ] = calculateConcessionalSuper(totalSuperAfter);
+  const [
+    concessionalTaxAfter,
+    excessTaxAfter,
+  ] = calculateSuperTaxFor(totalSuperAfter, taxableIncomeAfter);
   const superTaxAfter = concessionalTaxAfter + excessTaxAfter;
 
   const before = {
@@ -45,14 +60,14 @@ export const SuperCalculatorProvider: React.FunctionComponent<SuperCalculatorPro
         tax: concessionalTaxBefore,
         formula: `${concessionalTaxBefore} + ${excessTaxBefore}`,
         guarantee: superGuarantee,
-        sacrifice: 0
+        sacrifice: 0,
       },
       excess: {
         total: excessContributionBefore,
         tax: excessTaxBefore,
-        formula: ""
-      }
-    }
+        formula: '',
+      },
+    },
   };
 
   const after = {
@@ -71,14 +86,14 @@ export const SuperCalculatorProvider: React.FunctionComponent<SuperCalculatorPro
         tax: concessionalTaxAfter,
         formula: `${concessionalTaxAfter} + ${excessTaxAfter}`,
         guarantee: superGuarantee,
-        sacrifice: salarySacrifice
+        sacrifice: salarySacrifice,
       },
       excess: {
         total: excessContributionAfter,
         tax: excessTaxAfter,
-        formula: ""
-      }
-    }
+        formula: '',
+      },
+    },
   };
 
   return (
@@ -86,7 +101,8 @@ export const SuperCalculatorProvider: React.FunctionComponent<SuperCalculatorPro
       sacrificeRate,
       before,
       after,
-    }}>
+    }}
+    >
       {children}
     </SuperCalculatorContext.Provider>
   );
