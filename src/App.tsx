@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Router } from '@material-ui/icons';
+import { Switch, Route } from 'react-router-dom';
 import { ResultPage } from './pages/ResultPage';
 import { DEFAULT_INCOME, DEFAULT_SACRIFICE_RATE } from './config';
 import { SuperCalculatorProvider } from './hooks';
@@ -29,14 +31,18 @@ function App() {
   };
 
   return (
-    <>
-      <SuperCalculatorProvider totalIncome={totalIncome} sacrificeRate={sacrificeRate}>
-        <ResultPage
-          updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
-          updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
-        />
-      </SuperCalculatorProvider>
-    </>
+    <SuperCalculatorProvider totalIncome={totalIncome} sacrificeRate={sacrificeRate}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <ResultPage
+              updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
+              updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
+            />
+          </Route>
+        </Switch>
+      </Router>
+    </SuperCalculatorProvider>
   );
 }
 
