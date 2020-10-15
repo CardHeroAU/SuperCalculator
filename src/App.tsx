@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { ResultPage } from './pages/ResultPage';
+import { Result } from './pages/Result';
 import { SuperCalculatorProvider } from './hooks';
 import { useSacrificeRate } from './hooks/useSacrificeRate';
 import { useTotalIncome } from './hooks/useTotalIncome';
+import { Welcome } from './pages/Welcome';
+import { TotalIncomeInput } from './pages/TotalIncomeInput';
 
 const minimumIncome = 30000;
 const gap = 10000;
@@ -27,10 +29,13 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <p>Welcome</p>
+            <Welcome />
+          </Route>
+          <Route exact path="/step/1">
+            <TotalIncomeInput />
           </Route>
           <Route exact path="/result">
-            <ResultPage
+            <Result
               updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
               updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
             />

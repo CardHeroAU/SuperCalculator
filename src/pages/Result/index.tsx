@@ -4,7 +4,7 @@ import { SuperInput, SuperInputProp } from '../../components/SuperInput';
 import { SummaryTable } from '../../components/SummaryTable';
 import { FAQs } from '../../components/faq';
 
-export const ResultPage = ({
+export const Result = ({
   updateTotalIncome,
   updateSacrificeRate,
 }: SuperInputProp) => (
