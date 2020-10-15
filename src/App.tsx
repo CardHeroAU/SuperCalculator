@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Switch, Route, Redirect,
+} from 'react-router-dom';
 import { Result } from './pages/Result';
 import { SuperCalculatorProvider } from './hooks';
 import { useSacrificeRate } from './hooks/useSacrificeRate';
@@ -7,19 +9,14 @@ import { useTotalIncome } from './hooks/useTotalIncome';
 import { Welcome } from './pages/Welcome';
 import { TotalIncomeInput } from './pages/TotalIncomeInput';
 
-const minimumIncome = 30000;
-const gap = 10000;
-const numberOfGaps = 18;
-const incomes = [minimumIncome];
-for (let i = 1; i < numberOfGaps; i += 1) {
-  const income = minimumIncome + i * gap;
-  incomes.push(income);
-}
-
 const App = () => {
   // Global State
   const [sacrificeRate, updateSacrificeRate] = useSacrificeRate();
   const [totalIncome, updateTotalIncome] = useTotalIncome();
+
+  const steps = [
+    <TotalIncomeInput setTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)} />,
+  ];
 
   return (
     <SuperCalculatorProvider
@@ -31,15 +28,20 @@ const App = () => {
           <Route exact path="/">
             <Welcome />
           </Route>
-          <Route exact path="/step/1">
-            <TotalIncomeInput />
-          </Route>
+          {
+            steps.map((step, i) => (
+              <Route exact path={`/step/${i + 1}`}>
+                {step}
+              </Route>
+            ))
+          }
           <Route exact path="/result">
             <Result
               updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
               updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
             />
           </Route>
+          <Route render={() => <Redirect to="/" />} />
         </Switch>
       </BrowserRouter>
     </SuperCalculatorProvider>
