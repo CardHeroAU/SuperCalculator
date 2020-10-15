@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import {
-  Box,
-  Fab,
-  Icon,
-} from '@material-ui/core';
-import { SuperInput } from './components/SuperInput';
-import { SummaryTable } from './components/SummaryTable';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Result } from './pages/Result';
 import { SuperCalculatorProvider } from './hooks';
-import { FAQs } from './components/faq';
-import { DEFAULT_INCOME, DEFAULT_SACRIFICE_RATE } from './config';
+import { useSacrificeRate } from './hooks/useSacrificeRate';
+import { useTotalIncome } from './hooks/useTotalIncome';
+import { Welcome } from './pages/Welcome';
+import { TotalIncomeInput } from './pages/TotalIncomeInput';
 
 const minimumIncome = 30000;
 const gap = 10000;
@@ -19,50 +16,34 @@ for (let i = 1; i < numberOfGaps; i += 1) {
   incomes.push(income);
 }
 
-function App() {
-  const [totalIncome, setTotalIncome] = useState(DEFAULT_INCOME);
-  const [sacrificeRate, setSacrificeRate] = useState(DEFAULT_SACRIFICE_RATE);
-
-  const updateIncome = (newIncome: number) => {
-    if (newIncome >= 0) {
-      setTotalIncome(newIncome);
-    }
-  };
-
-  const updateSacrificeRate = (newSacrificeRate: number) => {
-    if (newSacrificeRate > 0 && newSacrificeRate <= 1) {
-      setSacrificeRate(newSacrificeRate);
-    }
-  };
+const App = () => {
+  // Global State
+  const [sacrificeRate, updateSacrificeRate] = useSacrificeRate();
+  const [totalIncome, updateTotalIncome] = useTotalIncome();
 
   return (
-    <div>
-      <Box display="flex">
-        <SuperInput
-          sacrificeRate={sacrificeRate}
-          totalIncome={totalIncome}
-          updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
-          updateTotalIncome={(newTotalIncome) => updateIncome(newTotalIncome)}
-        />
-      </Box>
-      <SuperCalculatorProvider totalIncome={totalIncome} sacrificeRate={sacrificeRate}>
-        <Box>
-          <SummaryTable />
-        </Box>
-        <Box>
-          <FAQs />
-        </Box>
-      </SuperCalculatorProvider>
-      <Box display="flex">
-        <Box m="auto">
-          <Fab variant="extended" color="primary" aria-label="add">
-            Send this to me
-            <Icon>send</Icon>
-          </Fab>
-        </Box>
-      </Box>
-    </div>
+    <SuperCalculatorProvider
+      sacrificeRate={sacrificeRate}
+      totalIncome={totalIncome}
+    >
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+          <Route exact path="/step/1">
+            <TotalIncomeInput />
+          </Route>
+          <Route exact path="/result">
+            <Result
+              updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
+              updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
+            />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </SuperCalculatorProvider>
   );
-}
+};
 
 export default App;
