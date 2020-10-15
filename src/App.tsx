@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Router } from '@material-ui/icons';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ResultPage } from './pages/ResultPage';
 import { DEFAULT_INCOME, DEFAULT_SACRIFICE_RATE } from './config';
 import { SuperCalculatorProvider } from './hooks';
@@ -16,14 +15,13 @@ for (let i = 1; i < numberOfGaps; i += 1) {
 
 function App() {
   const [totalIncome, setTotalIncome] = useState(DEFAULT_INCOME);
-  const [sacrificeRate, setSacrificeRate] = useState(DEFAULT_SACRIFICE_RATE);
-
   const updateTotalIncome = (newIncome: number) => {
     if (newIncome >= 0) {
       setTotalIncome(newIncome);
     }
   };
 
+  const [sacrificeRate, setSacrificeRate] = useState(DEFAULT_SACRIFICE_RATE);
   const updateSacrificeRate = (newSacrificeRate: number) => {
     if (newSacrificeRate > 0 && newSacrificeRate <= 1) {
       setSacrificeRate(newSacrificeRate);
@@ -32,16 +30,19 @@ function App() {
 
   return (
     <SuperCalculatorProvider totalIncome={totalIncome} sacrificeRate={sacrificeRate}>
-      <Router>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/">
+            <p>Welcome</p>
+          </Route>
+          <Route exact path="/result">
             <ResultPage
               updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
               updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
             />
           </Route>
         </Switch>
-      </Router>
+      </BrowserRouter>
     </SuperCalculatorProvider>
   );
 }
