@@ -8,6 +8,7 @@ export const useSacrificeRate = (): [number, (newSacrificeRate: number) => void]
     if (newSacrificeRate >= 0 && newSacrificeRate <= 1) {
       setSacrificeRate(newSacrificeRate);
     } else {
+      /* eslint-disable no-console */
       console.error('useSacrificeRate(): newSacrificeRate needs to be >= 0 AND <= 1');
     }
   };

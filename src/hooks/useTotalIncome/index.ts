@@ -8,6 +8,7 @@ export const useTotalIncome = (): [number, (newIncome: number) => void] => {
     if (newIncome >= 0) {
       setTotalIncome(newIncome);
     } else {
+      /* eslint-disable no-console */
       console.error('useTotalIncome(): newIncome needs to be >= 0');
     }
   };
