@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Fab,
-  Icon,
-} from '@material-ui/core';
-import { SuperInput } from './components/SuperInput';
-import { SummaryTable } from './components/SummaryTable';
-import { SuperCalculatorProvider } from './hooks';
-import { FAQs } from './components/faq';
+import { ResultPage } from './pages/ResultPage';
 import { DEFAULT_INCOME, DEFAULT_SACRIFICE_RATE } from './config';
+import { SuperCalculatorProvider } from './hooks';
 
 const minimumIncome = 30000;
 const gap = 10000;
@@ -23,7 +16,7 @@ function App() {
   const [totalIncome, setTotalIncome] = useState(DEFAULT_INCOME);
   const [sacrificeRate, setSacrificeRate] = useState(DEFAULT_SACRIFICE_RATE);
 
-  const updateIncome = (newIncome: number) => {
+  const updateTotalIncome = (newIncome: number) => {
     if (newIncome >= 0) {
       setTotalIncome(newIncome);
     }
@@ -36,32 +29,14 @@ function App() {
   };
 
   return (
-    <div>
-      <Box display="flex">
-        <SuperInput
-          sacrificeRate={sacrificeRate}
-          totalIncome={totalIncome}
-          updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
-          updateTotalIncome={(newTotalIncome) => updateIncome(newTotalIncome)}
-        />
-      </Box>
+    <>
       <SuperCalculatorProvider totalIncome={totalIncome} sacrificeRate={sacrificeRate}>
-        <Box>
-          <SummaryTable />
-        </Box>
-        <Box>
-          <FAQs />
-        </Box>
+        <ResultPage
+          updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
+          updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}
+        />
       </SuperCalculatorProvider>
-      <Box display="flex">
-        <Box m="auto">
-          <Fab variant="extended" color="primary" aria-label="add">
-            Send this to me
-            <Icon>send</Icon>
-          </Fab>
-        </Box>
-      </Box>
-    </div>
+    </>
   );
 }
 

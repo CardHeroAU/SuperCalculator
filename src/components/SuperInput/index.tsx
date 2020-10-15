@@ -13,10 +13,9 @@ import Remove from '@material-ui/icons/Remove';
 import Add from '@material-ui/icons/Add';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useSuperCalculator } from '../../hooks';
 
-interface SuperInputProp {
-  totalIncome: number;
-  sacrificeRate: number;
+export interface SuperInputProp {
   updateTotalIncome: (totalIncome: number) => void;
   updateSacrificeRate: (sacrificeRate: number) => void;
 }
@@ -41,11 +40,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 export const SuperInput = ({
-  totalIncome, sacrificeRate, updateTotalIncome, updateSacrificeRate,
+  updateTotalIncome,
+  updateSacrificeRate,
 }: SuperInputProp) => {
   const classes = useStyles();
 
-  // const [includeSuper, setIncludesSuper] = useState(true);
+  const {
+    sacrificeRate,
+    before: {
+      income: {
+        total: totalIncomeBefore,
+      },
+    },
+  } = useSuperCalculator();
 
   return (
     <Paper component="form" className={classes.root}>
@@ -56,7 +63,7 @@ export const SuperInput = ({
         required
         id="totalIncomeSelect"
         className={classes.input}
-        value={totalIncome}
+        value={totalIncomeBefore}
         onChange={(event) => updateTotalIncome(parseInt(event.target.value, 10))}
         type="number"
         placeholder="Enter Total Income"
