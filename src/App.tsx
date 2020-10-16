@@ -8,7 +8,9 @@ import { useSacrificeRate } from './hooks/useSacrificeRate';
 import { useTotalIncome } from './hooks/useTotalIncome';
 import { Welcome } from './pages/Welcome';
 import { TotalIncomeInput } from './pages/TotalIncomeInput';
-import { LinearProgressWithLabel } from './components/LinearProgressWithLabel';
+import { StepPage } from './pages/StepPage';
+import 'normalize.css';
+import './index.css';
 
 const App = () => {
   // Global State
@@ -30,17 +32,18 @@ const App = () => {
             <Welcome />
           </Route>
           {
-            steps.map((step, i) => {
-              const currentStep = i + 1;
-              const progress = (currentStep / steps.length) * 100;
-              return (
-                <Route exact path={`/step/${currentStep}`}>
-                  <LinearProgressWithLabel value={progress} />
-                  {step}
-                </Route>
-              );
-            })
-          }
+              steps.map((step, i) => {
+                const currentStep = i + 1;
+                const progress = (currentStep / steps.length) * 100;
+                return (
+                  <Route exact path={`/step/${currentStep}`}>
+                    <StepPage progress={progress}>
+                      {step}
+                    </StepPage>
+                  </Route>
+                );
+              })
+            }
           <Route exact path="/result">
             <Result
               updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
