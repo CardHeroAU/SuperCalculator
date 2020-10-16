@@ -1,11 +1,8 @@
 import React from 'react';
 import {
-  Box,
   Button,
   Container,
   Grid,
-  LinearProgress,
-  LinearProgressProps,
   MenuItem,
   Select,
   Tooltip,
@@ -28,30 +25,6 @@ interface TotalIncomeInputProp {
   setTotalIncome: (newTotalIncome: number) => void;
 }
 
-/* eslint-disable react/jsx-props-no-spreading */
-function LinearProgressWithLabel(props: LinearProgressProps & { value: number }) {
-  const {
-    value,
-  } = props;
-
-  return (
-    <Container maxWidth="sm">
-      <Box display="flex" alignItems="center">
-        <Box width="100%" mr={1}>
-          <LinearProgress variant="determinate" {...props} />
-        </Box>
-        <Box minWidth={35}>
-          <Typography variant="body2" color="textSecondary">
-            {`${Math.round(
-              value,
-            )}%`}
-          </Typography>
-        </Box>
-      </Box>
-    </Container>
-  );
-}
-
 export const TotalIncomeInput = ({ setTotalIncome }: TotalIncomeInputProp) => {
   const {
     before: {
@@ -68,7 +41,6 @@ export const TotalIncomeInput = ({ setTotalIncome }: TotalIncomeInputProp) => {
   return (
     <Container maxWidth="sm">
       <Grid container>
-        <LinearProgressWithLabel value={40} />
         <Grid item>
           <Typography variant="h1">
             Select an income
