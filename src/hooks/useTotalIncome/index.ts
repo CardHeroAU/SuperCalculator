@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DEFAULT_INCOME } from '../../utils/constants';
-import { LOCAL_STORAGE_TOTAL_INCOME } from '../../../config';
+import { LOCAL_STORAGE_TOTAL_INCOME } from '../../config';
 
 export const useTotalIncome = (): [number, (newIncome: number) => void] => {
   const savedValue = localStorage.getItem(LOCAL_STORAGE_TOTAL_INCOME);

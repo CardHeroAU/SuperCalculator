@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { DEFAULT_SACRIFICE_RATE } from '../../utils/constants';
-import { LOCAL_STORAGE_SACRIFICE_RATE } from '../../../config';
+import { LOCAL_STORAGE_SACRIFICE_RATE } from '../../config';
 
 export const useSacrificeRate = (): [number, (newSacrificeRate: number) => void] => {
   const savedValue = localStorage.getItem(LOCAL_STORAGE_SACRIFICE_RATE);
