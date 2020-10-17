@@ -11,6 +11,7 @@ import { TotalIncomeInput } from './pages/TotalIncomeInput';
 import { StepPage } from './pages/StepPage';
 import 'normalize.css';
 import './index.css';
+import { ROUTE_RESULT, ROUTE_START, ROUTE_STEP_SLUG } from './config';
 
 const App = () => {
   // Global State
@@ -35,16 +36,22 @@ const App = () => {
               steps.map((step, i) => {
                 const currentStep = i + 1;
                 const progress = (currentStep / steps.length) * 100;
+                const previousStep = currentStep === 1 ? ROUTE_START : `${ROUTE_STEP_SLUG}/${currentStep - 1}`;
+                const nextStep = currentStep === steps.length ? ROUTE_RESULT : `${ROUTE_STEP_SLUG}/${currentStep + 1}`;
                 return (
-                  <Route exact path={`/step/${currentStep}`}>
-                    <StepPage progress={progress}>
+                  <Route exact path={`${ROUTE_STEP_SLUG}/${currentStep}`}>
+                    <StepPage
+                      progress={progress}
+                      previousPage={previousStep}
+                      nextPage={nextStep}
+                    >
                       {step}
                     </StepPage>
                   </Route>
                 );
               })
             }
-          <Route exact path="/result">
+          <Route exact path={ROUTE_RESULT}>
             <Result
               updateSacrificeRate={(newSacrificeRate) => updateSacrificeRate(newSacrificeRate)}
               updateTotalIncome={(newTotalIncome) => updateTotalIncome(newTotalIncome)}

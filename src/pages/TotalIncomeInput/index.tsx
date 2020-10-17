@@ -8,7 +8,6 @@ import {
   Tooltip,
   Typography,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import currencyFormatter from '../../utils/formatter';
 import { useSuperCalculator } from '../../hooks';
 
@@ -71,16 +70,6 @@ export const TotalIncomeInput = ({ setTotalIncome }: TotalIncomeInputProp) => {
             ))
           }
           </Select>
-        </Grid>
-        <Grid item>
-          <Button
-            variant="contained"
-            color="primary"
-            component={Link}
-            to="/step/2"
-          >
-            Continue
-          </Button>
         </Grid>
       </Grid>
     </Container>
