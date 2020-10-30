@@ -6,3 +6,5 @@ patch:
   SNYK-JS-LODASH-567746:
     - styled-components > babel-plugin-styled-components > lodash:
         patched: '2020-10-16T06:25:03.609Z'
+    - react-scripts > eslint-plugin-testing-library > @typescript-eslint/experimental-utils > @typescript-eslint/typescript-estree > lodash:
+        patched: '2020-10-24T02:18:21.970Z'

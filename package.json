@@ -21,7 +21,7 @@
     "react-scripts": "^4.0.0",
     "styled-components": "^5.2.0",
     "typescript": "~3.9.7",
-    "snyk": "^1.414.0"
+    "snyk": "^1.420.0"
   },
   "scripts": {
     "start": "yarn run start:app",
@@ -32,7 +32,8 @@
     "build:app": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
